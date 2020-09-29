@@ -1,20 +1,19 @@
 <template>
   <div>
+    <navbar />
     <Nuxt />
   </div>
 </template>
 
 <style>
+:root {
+  --hoverNavLinkColor: #ff4d00;
+  --mobileNavMenuBackground: #ff4d00;
+}
+
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
