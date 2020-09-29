@@ -2,6 +2,7 @@
   <div>
     <navbar />
     <Nuxt />
+    <span class="credits">A website by <a href="https://mattiapeiretti.com/" target="_blank">Mattia Peiretti</a>. Opensouce <a href="https://github.com/MattiaPeiretti/MCDII" target="_blank">Repo</a></span>
   </div>
 </template>
 
@@ -21,6 +22,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+.credits {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 *,
@@ -57,5 +64,13 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+
+h1, 
+h2, 
+h3,
+h4 {
+  font-family: 'Montserrat', sans-serif;
 }
 </style>
