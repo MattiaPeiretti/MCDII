@@ -2,14 +2,56 @@
   <div>
     <navbar />
     <Nuxt />
-    <span class="credits">A website by <a href="https://mattiapeiretti.com/" target="_blank">Mattia Peiretti</a>. Opensouce <a href="https://github.com/MattiaPeiretti/MCDII" target="_blank">Repo</a></span>
+    <span class="credits"
+      >A website by
+      <a href="https://mattiapeiretti.com/" target="_blank">Mattia Peiretti</a>.
+      Opensouce
+      <a href="https://github.com/MattiaPeiretti/MCDII" target="_blank"
+        >Repo</a
+      ></span
+    >
   </div>
 </template>
 
 <style>
 :root {
+  --main-grey: #eee;
+  --backgroundColor: #f8f8f8;
+  --backgroundColorPanel: #fff;
+
+  --interfaceButtonColor: #bbb;
+
   --hoverNavLinkColor: #ff4d00;
   --mobileNavMenuBackground: #ff4d00;
+
+  --buttonForeColor: white;
+
+  --buttonBackgroundColor: linear-gradient(
+    180deg,
+    rgba(255, 77, 0, 1) 70%,
+    rgba(255, 100, 0, 1) 100%
+  );
+
+  --interfaceActiveColor: #ff4d00;
+  --interfaceHighlightColor: #ff763c;
+  --interfaceDisabledColor: #ccc;
+  --interfaceForegroundColor: #000;
+  --interfaceFocusColor: var(--interfaceActiveColor);
+  --interfaceHeaderBackgroundColor: #fff;
+
+  --interfaceItemsBorderColor: #bbb;
+  --interfaceItemsBorderHoverColor: #aaa;
+  --interfaceIdleBackgroundColor: #fff;
+  --interfaceActiveBackgroundColor: var(--interfaceActiveColor);
+
+  --active: #ff4d00;
+  --active-inner: #fff;
+  --focus: 2px rgba(255, 204, 182, 0.349);
+  --border: #bbb;
+  --border-hover: #bbb;
+  --background: #fff;
+  --disabled: #f6f8ff;
+  --disabled-inner: #e1e6f9;
 }
 
 html {
@@ -66,11 +108,10 @@ html {
   background-color: #35495e;
 }
 
-
-h1, 
-h2, 
+h1,
+h2,
 h3,
 h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 </style>
