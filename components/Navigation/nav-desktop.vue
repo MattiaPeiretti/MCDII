@@ -24,11 +24,12 @@
 
 <style scoped lang="scss">
 nav {
-  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px -2px var(--normalShadowColor);
   position: fixed;
   z-index: 999;
   background-color: white;
   width: 100%;
+  background-color: var(--navbarBackgroundColor);
 
   .nav-container {
     display: flex;
@@ -49,7 +50,7 @@ nav {
 
           a {
             text-decoration: none;
-            color: #000;
+            color: var(--navbarForegroundColor);
           }
 
           a,
@@ -76,7 +77,7 @@ nav {
               bottom: 0;
               width: 100%;
               height: 2px;
-              background: var(--hoverNavLinkColor);
+              background: var(--navbarLinkHighlightColor);
               transform: translateX(-100%);
             }
             &:hover:before {
@@ -90,7 +91,7 @@ nav {
       display: flex;
       align-items: center;
       text-decoration: none !important;
-      color: black;
+      color: var(--navbarForegroundColor);
 
       img {
         max-width: 60px;

@@ -15,43 +15,45 @@
 
 <style>
 :root {
-  --main-grey: #eee;
-  --backgroundColor: #f8f8f8;
-  --backgroundColorPanel: #fff;
+  --foregroundColor: #000;
+  --primaryColor: #ff4d00;
+  --secondaryColor: #275efe;
+  --highlightColor: #ff763c;
+  --normalShadowColor: rgba(0, 0, 0, 0.2);
+  --highlightShadowColor: var(--normalShadowColor);
 
-  --interfaceButtonColor: #bbb;
+  --navbarForegroundColor: var(--foregroundColor);
+  --navbarBackgroundColor: #fff;
+  --navbarLinkHighlightColor: var(--primaryColor);
+  --navbarMobileMenuBackgroundColor: var(--primaryColor);
+  --navbarMobileMenuForegroundColor: #fff;
 
-  --hoverNavLinkColor: #ff4d00;
-  --mobileNavMenuBackground: #ff4d00;
-
-  --buttonForeColor: white;
-
-  --buttonBackgroundColor: linear-gradient(
-    180deg,
-    rgba(255, 77, 0, 1) 70%,
-    rgba(255, 100, 0, 1) 100%
-  );
-
-  --interfaceActiveColor: #ff4d00;
-  --interfaceHighlightColor: #ff763c;
+  --interfaceBackgroundColor: #fff;
+  --interfaceActiveColor: var(--primaryColor);
+  --interfaceActiveInnerColor: #fff;
+  --interfaceHighlightColor: var(--highlightColor);
   --interfaceDisabledColor: #ccc;
-  --interfaceForegroundColor: #000;
+  --interfaceDisabledInnerColor: #ddd;
+  --interfaceForegroundColor: var(--foregroundColor);
   --interfaceFocusColor: var(--interfaceActiveColor);
   --interfaceHeaderBackgroundColor: #fff;
-
   --interfaceItemsBorderColor: #bbb;
   --interfaceItemsBorderHoverColor: #aaa;
   --interfaceIdleBackgroundColor: #fff;
   --interfaceActiveBackgroundColor: var(--interfaceActiveColor);
+  --interfaceSeparatorColor1: #eee;
+  --interfacePrimaryButtonBackgroundColor: linear-gradient(
+    180deg,
+    rgba(255, 77, 0, 1) 70%,
+    rgba(255, 100, 0, 1) 100%
+  );
+  --interfacePrimaryButtonForegroundColor: #fff;
 
-  --active: #ff4d00;
-  --active-inner: #fff;
-  --focus: 2px rgba(255, 204, 182, 0.349);
-  --border: #bbb;
-  --border-hover: #bbb;
-  --background: #fff;
-  --disabled: #f6f8ff;
-  --disabled-inner: #e1e6f9;
+  --consoleBackgroundColor: #f8f8f8;
+  --consoleForegroundColor: var(--foregroundColor);
+
+
+
 }
 
 html {

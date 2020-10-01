@@ -43,12 +43,12 @@ export default {
 
 <style scoped lang="scss">
 nav {
-  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px -2px var(--normalShadowColor);
   width: 100%;
   height: 80px;
   position: absolute;
   z-index: 999;
-  background-color: white;
+  background-color: var(--navbarBackgroundColor);
 
   .nav-container {
     display: flex;
@@ -63,7 +63,7 @@ nav {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: var(--mobileNavMenuBackground);
+        background-color: var(--navbarMobileMenuBackgroundColor);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -80,7 +80,7 @@ nav {
 
           a {
             text-decoration: none;
-            color: #fff;
+            color: var(--navbarMobileMenuForegroundColor);
             font-size: 9vw;
             font-family: "Montserrat", sans-serif;
           }
@@ -98,7 +98,7 @@ nav {
       align-items: center;
       justify-content: space-between;
       text-decoration: none !important;
-      color: black;
+      color: var(--navbarForegroundColor);
 
       img {
         max-width: 80px;
@@ -173,7 +173,7 @@ nav {
 
       &.nav-burger-open {
         span {
-          background-color: white;
+          background-color: var(--navbarBackgroundColor);
 
           &:nth-child(1) {
             -webkit-transform: rotate(45deg);

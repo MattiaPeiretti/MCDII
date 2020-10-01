@@ -45,7 +45,8 @@ export default {};
 
 <style lang="scss" scoped>
 .main-container {
-  background-color: var(--backgroundColor);
+  color: var(--consoleForegroundColor);
+  background-color: var(--consoleBackgroundColor);
   min-height: 100vh;
 }
 

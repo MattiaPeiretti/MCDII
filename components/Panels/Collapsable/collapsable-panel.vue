@@ -39,18 +39,18 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px -2px var(--normalShadowColor);
   margin: 10px;
   border: 1px solid #eee;
   border-radius: 15px 15px 0px 0px;
-  background-color: var(--backgroundColorPanel);
+  background-color: var(--interfaceBackgroundColor);
 
   .header {
     display: flex;
     align-items: center;
     background-color: #fff;
     border-radius: 15px 15px 0px 0px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--interfaceSeparatorColor1);
     height: 50px;
     cursor: pointer;
     transition: 0.2s;
@@ -87,7 +87,7 @@ export default {
 .arrow {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 12px solid var(--interfaceButtonColor);
+  border-left: 12px solid var(--interfaceItemsBorderColor);
 
   width: 0;
   height: 0;
@@ -97,6 +97,7 @@ export default {
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+
   input[type="checkbox"],
   input[type="radio"] {
     -webkit-appearance: none;
@@ -122,8 +123,8 @@ export default {
     }
 
     &:checked {
-      --b: var(--active);
-      --bc: var(--active);
+      --b: var(--interfaceActiveColor);
+      --bc: var(--interfaceActiveColor);
       --d-o: 0.3s;
       --d-t: 0.6s;
       --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
@@ -134,8 +135,8 @@ export default {
       cursor: not-allowed;
       opacity: 0.9;
       &:checked {
-        --b: var(--disabled-inner);
-        --bc: var(--border);
+        --b: var(--interfaceDisabledInnerColor);
+        --bc: var(--interfaceDisabledColor);
       }
       & + label {
         cursor: not-allowed;
@@ -180,7 +181,7 @@ export default {
       &:after {
         width: 5px;
         height: 9px;
-        border: 2px solid var(--active-inner);
+        border: 2px solid var(--interfaceActiveInnerColor);
         border-top: 0;
         border-left: 0;
         left: 7px;
@@ -200,11 +201,11 @@ export default {
         border-radius: 50%;
         width: 15px;
         height: 15px;
-        background: var(--ab, var(--border));
+        background: var(--ab, var(--interfaceItemsBorderColor));
         transform: translateX(var(--x, 0));
       }
       &:checked {
-        --ab: var(--active-inner);
+        --ab: var(--interfaceActiveInnerColor);
         --x: 17px;
       }
       &:disabled {
@@ -222,7 +223,7 @@ export default {
       width: 19px;
       height: 19px;
       border-radius: 50%;
-      background: var(--active-inner);
+      background: var(--interfaceActiveInnerColor);
       opacity: 0;
       transform: scale(var(--s, 0.7));
     }
@@ -254,8 +255,8 @@ export default {
   button {
     border: none;
     outline: none;
-    background: var(--buttonBackgroundColor);
-    color: var(--buttonForeColor);
+    background: var(--interfacePrimaryButtonBackgroundColor);
+    color: var(--interfacePrimaryButtonForegroundColor);
     padding: 4px 8px;
     border-radius: 4px;
     cursor: pointer;
