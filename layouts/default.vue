@@ -22,12 +22,15 @@
   --normalShadowColor: rgba(0, 0, 0, 0.2);
   --highlightShadowColor: var(--normalShadowColor);
 
+
+
   --navbarForegroundColor: var(--foregroundColor);
   --navbarBackgroundColor: #fff;
   --navbarLinkHighlightColor: var(--primaryColor);
   --navbarMobileMenuBackgroundColor: var(--primaryColor);
   --navbarMobileMenuForegroundColor: #fff;
 
+  --interfaceBorderRadius: 4px;
   --interfaceBackgroundColor: #fff;
   --interfaceActiveColor: var(--primaryColor);
   --interfaceActiveInnerColor: #fff;
