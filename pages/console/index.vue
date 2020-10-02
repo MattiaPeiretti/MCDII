@@ -78,7 +78,9 @@
             </select>
           </p>
         </collapsable-panel>
-        <collapsable-panel title="Layers Selection"></collapsable-panel>
+        <collapsable-panel title="Layers Selection">
+        <layer-editor></layer-editor>
+        </collapsable-panel>
         <collapsable-panel title="Advanced Settings">
           <p class="panel-title"><b>Customize Data Request:</b></p>
           <ul>
