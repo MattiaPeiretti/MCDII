@@ -97,7 +97,6 @@ export default {
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-
   input[type="checkbox"],
   input[type="radio"] {
     -webkit-appearance: none;
@@ -234,22 +233,25 @@ export default {
 
   input[type="text"] {
     outline: none;
-    border: 1px solid #bbc1e1;
+    border: 1px solid var(--interfaceItemsBorderColor);
     padding: 5px;
     border-radius: 4px;
     &:hover,
     &:focus {
-      border: 1px solid #275efe;
+      border: 1px solid var(--interfaceActiveColor);
     }
   }
 
-  input:hover {
-    box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.2);
+  input:hover,
+  select:hover {
+    box-shadow: 0 2px 5px -2px var(--normalShadowColor);
     transition: box-shadow 0.1s;
   }
 
-  input {
-    margin: 0 5px;
+  input,
+  select {
+    margin: 0 5px !important;
+    font-family: "Roboto", sans-serif;
   }
 
   button {
@@ -261,6 +263,34 @@ export default {
     border-radius: 4px;
     cursor: pointer;
     margin: 5px;
+  }
+
+  select {
+    border-radius: 4px;
+    padding: 5px 35px 5px 5px;
+    font-size: 15px;
+    border: 1px solid var(--interfaceItemsBorderColor);
+    height: 34px;
+    outline: none !important;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      border: 1px solid var(--interfaceActiveColor);
+    }
+  }
+
+  /* CAUTION: Internet Explorer hackery ahead */
+
+  select::-ms-expand {
+    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+  }
+
+  /* Target Internet Explorer 9 to undo the custom arrow */
+  @media screen and (min-width: 0\0) {
+    select {
+      background: none\9;
+      padding: 5px\9;
+    }
   }
 }
 </style>

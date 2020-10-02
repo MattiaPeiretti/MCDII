@@ -37,7 +37,7 @@
   --interfaceForegroundColor: var(--foregroundColor);
   --interfaceFocusColor: var(--interfaceActiveColor);
   --interfaceHeaderBackgroundColor: #fff;
-  --interfaceItemsBorderColor: #bbb;
+  --interfaceItemsBorderColor: #bbc1e1;
   --interfaceItemsBorderHoverColor: #aaa;
   --interfaceIdleBackgroundColor: #fff;
   --interfaceActiveBackgroundColor: var(--interfaceActiveColor);
@@ -51,9 +51,6 @@
 
   --consoleBackgroundColor: #f8f8f8;
   --consoleForegroundColor: var(--foregroundColor);
-
-
-
 }
 
 html {
