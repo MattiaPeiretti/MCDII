@@ -71,6 +71,7 @@ export default {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.15s ease-out;
+    line-height: 1.7;
   }
 
   .content-opened {
@@ -252,6 +253,15 @@ export default {
   select {
     margin: 0 5px !important;
     font-family: "Roboto", sans-serif;
+  }
+
+  .number-input-textbox {
+    width: 70px;
+  }
+
+  .panel-title {
+    font-size: 18px;
+    padding-bottom: 2px;
   }
 
   button {

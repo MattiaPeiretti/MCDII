@@ -28,7 +28,36 @@
             </select>
           </p>
         </collapsable-panel>
-        <collapsable-panel title="Date Parameters"></collapsable-panel>
+        <collapsable-panel title="Date Parameters">
+          <p class="panel-title"><b>Mars Date:</b></p>
+          <p>
+            Solar longitude (Ls):
+            <input class="number-input-textbox" type="text" /> degrees
+          </p>
+          <p>
+            Local Time:
+            <input class="number-input-textbox" type="text" /> Matian hour
+          </p>
+          <p class="panel-title"><b>Earth Date:</b></p>
+          <p>Date</p>
+          <client-only
+            ><date-picker
+              placeholder="MM/DD/YYYY"
+              format="MM/dd/yyyy"
+              v-model="date_today"
+          /></client-only>
+          <p>Time</p>
+          <input
+            type="text"
+            :placeholder="
+              currentDate.getHours() +
+                ':' +
+                currentDate.getMinutes() +
+                ':' +
+                currentDate.getSeconds()
+            "
+          />
+        </collapsable-panel>
         <collapsable-panel title="Location Paramters"></collapsable-panel>
         <collapsable-panel title="Layers Selection"></collapsable-panel>
         <collapsable-panel title="Advanced Settings"></collapsable-panel>
@@ -40,7 +69,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      currentDate: new Date()
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
