@@ -31,6 +31,7 @@
   --navbarMobileMenuForegroundColor: #fff;
 
   --interfaceBorderRadius: 4px;
+  --interfaceSecondaryHoverColor: rgba(0, 0, 0, 0.1);
   --interfaceBackgroundColor: #fff;
   --interfaceActiveColor: var(--primaryColor);
   --interfaceActiveInnerColor: #fff;
