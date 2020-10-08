@@ -13,7 +13,7 @@
       <div class="control-panel">
         <collapsable-panel title="Date Parameters">
           <p class="panel-title"><b>Mars Date:</b></p>
-          
+
           <table>
             <tr>
               <td>Solar longitude (Ls):</td>
@@ -271,7 +271,10 @@
           </table>
         </collapsable-panel>
       </div>
-      <div class="preview-panel"></div>
+      <div class="preview-panel">
+        <collapsable-panel title="3D Overview">
+        </collapsable-panel>
+      </div>
     </div>
 
     <div class="modals">
