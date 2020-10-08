@@ -25,7 +25,7 @@
 export default {
   data() {
     return {
-      isOpened: false,
+      isOpened: true,
     };
   },
   props: {
@@ -79,7 +79,7 @@ export default {
   .content-opened {
     padding: 10px;
     transition: max-height 0.15s ease-out;
-    max-height: 500px !important;
+    max-height: 1000px !important;
   }
 }
 
