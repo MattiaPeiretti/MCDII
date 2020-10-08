@@ -8,7 +8,7 @@
     </div>
     <div class="preset-button-container">
       <div class="preset-button-container-inner">
-        <img src="@/static/icons/analytics-24px.svg" alt="" />
+        <img src="@/static/icons/bookmarks-24px.svg" alt="" />
         <span class="preset-button-title">Saved</span>
       </div>
     </div>
