@@ -1,10 +1,10 @@
 <template>
   <div class="main-container">
     <toolbar @openModalPresets="isPresetsModalOpened = true"></toolbar>
+
     <div class="header">
       <h1>Query Console</h1>
-      <span
-        >Here you can prepare and submit a query to the Mars Climate
+      <span>Here you can prepare and submit a query to the Mars Climate
         Database.</span
       >
     </div>
@@ -13,14 +13,30 @@
       <div class="control-panel">
         <collapsable-panel title="Date Parameters">
           <p class="panel-title"><b>Mars Date:</b></p>
-          <p>
-            Solar longitude (Ls):
-            <input class="number-input-textbox" type="text" /> degrees
-          </p>
-          <p>
-            Local Time:
-            <input class="number-input-textbox" type="text" /> Matian hour
-          </p>
+          
+          <table>
+            <tr>
+              <td>Solar longitude (Ls):</td>
+              <td>
+                <input class="number-input-textbox" type="text" /> degrees
+              </td>
+              <td class="use-all-td">
+                <input type="checkbox" name="all-solar-longitude" value="" />
+                <lable for="all-solar-longitude">All</lable>
+              </td>
+            </tr>
+            <tr>
+              <td>Local Time:</td>
+              <td>
+                <input class="number-input-textbox" type="text" /> Matian hour
+              </td>
+              <td class="use-all-td">
+                <input type="checkbox" name="all-solar-longitude" value="" />
+                <lable for="all-solar-longitude">All</lable>
+              </td>
+            </tr>
+          </table>
+
           <p class="panel-title"><b>Earth Date:</b></p>
           <p>Date:</p>
           <client-only
@@ -34,158 +50,225 @@
             type="text"
             :placeholder="
               currentDate.getHours() +
-              ':' +
-              currentDate.getMinutes() +
-              ':' +
-              currentDate.getSeconds()
+                ':' +
+                currentDate.getMinutes() +
+                ':' +
+                currentDate.getSeconds()
             "
           />
         </collapsable-panel>
+
         <collapsable-panel title="Location Paramters">
           <p class="panel-title"><b>Coordinates on Mars</b></p>
-          <p>
-            Latitude: <input class="number-input-textbox" type="text" /> degree
-            North
-          </p>
-          <p>
-            Longitude: <input class="number-input-textbox" type="text" /> degree
-            East
-          </p>
-          <p>
-            Altitude: <input class="number-input-textbox" type="text" />
-            <select>
-              <option>meters above surface</option>
-              <option>meters above sea level</option>
-              <option>meters from Mars center</option>
-              <option>Pa (pressure level)</option>
-            </select>
-          </p>
+
+          <table>
+            <tr>
+              <td>Latitude:</td>
+              <td>
+                <input class="number-input-textbox" type="text" /> degree North
+              </td>
+              <td class="use-all-td">
+                <input type="checkbox" name="all-solar-longitude" value="" />
+                <lable for="all-solar-longitude">All</lable>
+              </td>
+            </tr>
+            <tr>
+              <td>Longitude:</td>
+              <td>
+                <input class="number-input-textbox" type="text" /> degree East
+              </td>
+              <td class="use-all-td">
+                <input type="checkbox" name="all-solar-longitude" value="" />
+                <lable for="all-solar-longitude">All</lable>
+              </td>
+            </tr>
+            <tr>
+              <td>Altitude:</td>
+              <td>
+                <input class="number-input-textbox" type="text" />
+                <select>
+                  <option>meters above surface</option>
+                  <option>meters above sea level</option>
+                  <option>meters from Mars center</option>
+                  <option>Pa (pressure level)</option>
+                </select>
+              </td>
+              <td class="use-all-td">
+                <input type="checkbox" name="all-solar-longitude" value="" />
+                <lable for="all-solar-longitude">All</lable>
+              </td>
+            </tr>
+          </table>
         </collapsable-panel>
+
         <collapsable-panel title="Layers Selection">
           <layer-editor></layer-editor>
         </collapsable-panel>
+
         <collapsable-panel title="Advanced Settings">
           <p class="panel-title"><b>Customize Data Request:</b></p>
-          <ul>
-            <li>
-              <input
-                type="checkbox"
-                id="same-local-time"
-                name="same-local-time"
-                value=""
-              />
-              <lable for="same-local-time"
-                >Same <i>local time</i> on range of longitudes</lable
-              >
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                id="high-reslolution"
-                name="high-reslolution"
-                value=""
-              />
-              <lable for="high-reslolution"
-                >Use <i>high resolution topography</i></lable
-              >
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                id="zonal-averaging"
-                name="zonal-averaging"
-                value=""
-              />
-              <lable for="same-local-time"
-                >Zonal averaging (only lat/alt plot)</lable
-              >
-            </li>
-            <li>
-              <i>Dust/EUV scenario</i>
-              <select name="dust-euv-scenario">
-                <option value="1" selected="">climatology ave solar</option>
-                <option value="2">climatology min solar</option>
-                <option value="3">climatology max solar</option>
-                <option value="4">dust storm min solar</option>
-                <option value="5">dust storm ave solar</option>
-                <option value="6">dust storm max solar</option>
-                <option value="7">warm (dusty, max solar)</option>
-                <option value="8">cold (low dust, min solar)</option>
-                <option value="24">Martian Year 24</option>
-                <option value="25">Martian Year 25</option>
-                <option value="26">Martian Year 26</option>
-                <option value="27">Martian Year 27</option>
-                <option value="28">Martian Year 28</option>
-                <option value="29">Martian Year 29</option>
-                <option value="30">Martian Year 30</option>
-                <option value="31">Martian Year 31</option>
-                <option value="32">Martian Year 32</option>
-                <option value="33">Martian Year 33</option>
-              </select>
-            </li>
-          </ul>
+          <table>
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  id="same-local-time"
+                  name="same-local-time"
+                  value=""
+                />
+                <lable for="same-local-time"
+                  >Same <i>local time</i> on range of longitudes</lable
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  id="high-reslolution"
+                  name="high-reslolution"
+                  value=""
+                />
+                <lable for="high-reslolution"
+                  >Use <i>high resolution topography</i></lable
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  id="zonal-averaging"
+                  name="zonal-averaging"
+                  value=""
+                />
+                <lable for="same-local-time"
+                  >Zonal averaging (only lat/alt plot)</lable
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <i>Dust/EUV scenario</i>
+                <select name="dust-euv-scenario">
+                  <option value="1" selected="">climatology ave solar</option>
+                  <option value="2">climatology min solar</option>
+                  <option value="3">climatology max solar</option>
+                  <option value="4">dust storm min solar</option>
+                  <option value="5">dust storm ave solar</option>
+                  <option value="6">dust storm max solar</option>
+                  <option value="7">warm (dusty, max solar)</option>
+                  <option value="8">cold (low dust, min solar)</option>
+                  <option value="24">Martian Year 24</option>
+                  <option value="25">Martian Year 25</option>
+                  <option value="26">Martian Year 26</option>
+                  <option value="27">Martian Year 27</option>
+                  <option value="28">Martian Year 28</option>
+                  <option value="29">Martian Year 29</option>
+                  <option value="30">Martian Year 30</option>
+                  <option value="31">Martian Year 31</option>
+                  <option value="32">Martian Year 32</option>
+                  <option value="33">Martian Year 33</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+          </table>
         </collapsable-panel>
-        <collapsable-panel title="Graph Preferences">
-          <ul>
-            <li>
-              Figure format
-              <input type="radio" name="dpi" value="80" checked="" /> PNG
-              <input type="radio" name="dpi" value="160" /> PNG hi-res
-              <input type="radio" name="dpi" value="eps" /> EPS
-            </li>
-            <li>
-              [1D] Log(values)
-              <input type="radio" name="islog" value="off" checked="" /> off
-              <input type="radio" name="islog" value="on" /> on
-            </li>
-            <li>
-              [2D] Colormap
-              <select name="colorm">
-                <option value="jet" selected="">blue green yellow red</option>
-                <option value="Greys">grey</option>
-                <option value="Blues">blue</option>
-                <option value="YlOrRd">yellow orange red</option>
-                <option value="spectral">rainbow</option>
-                <option value="hot">black red yellow</option>
-                <option value="RdBu_r">blue white red</option>
-                <option value="RdBu">red white blue</option>
-              </select>
-            </li>
-            <li>
-              [2D] Values range <input type="text" size="2" name="minval" /> to
-              <input type="text" size="2" name="maxval" />
-            </li>
-            <li>
-              [2D map]
-              <select name="proj">
-                <!--<option value=""          selected>flat (cylindrical lat-lon)</option>-->
-                <option value="cyl" selected="">flat</option>
-                <option value="ortho">sphere</option>
-                <option value="npstere">N pole</option>
-                <option value="spstere">S pole</option>
-                <!--<option value="robin">map</option>-->
-                <!--<option value="laea">laea</option>-->
-              </select>
-              proj @ lat <input type="text" size="1" name="plat" /> lon
-              <input type="text" size="1" name="plon" />
-            </li>
-            <li>
-              [2D map] Transparency (%)
-              <input type="text" size="1" name="trans" />
-            </li>
-            <li>
-              [2D map] Wind vectors
-              <input type="radio" name="iswind" value="off" checked="" /> off
-              <input type="radio" name="iswind" value="on" /> on
-            </li>
 
-            <li>
-              [2D map]
-              <input type="checkbox" name="istherepoint" value="on" /> Point at
-              lat <input type="text" size="1" name="latpoint" /> lon
-              <input type="text" size="1" name="lonpoint" />
-            </li>
-          </ul>
+        <collapsable-panel title="Graph Preferences">
+          <p class="panel-title"><b>General:</b></p>
+          <table>
+            <tr>
+              <td>Figure Format</td>
+              <td>
+                <select name="" id="">
+                  <option value="80">PNG</option>
+                  <option value="160">PNG HiRes</option>
+                  <option value="eps">EPS</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Log values (1D)</td>
+              <td>
+                <input type="checkbox" name="istherepoint" value="on" /> Active
+              </td>
+            </tr>
+          </table>
+
+          <p class="panel-title"><b>2D settings:</b></p>
+
+          <table>
+            <tr>
+              <td>Colormap</td>
+              <td>
+                <select name="colorm">
+                  <option value="jet" selected="">blue green yellow red</option>
+                  <option value="Greys">grey</option>
+                  <option value="Blues">blue</option>
+                  <option value="YlOrRd">yellow orange red</option>
+                  <option value="spectral">rainbow</option>
+                  <option value="hot">black red yellow</option>
+                  <option value="RdBu_r">blue white red</option>
+                  <option value="RdBu">red white blue</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Values range</td>
+              <td>
+                <input type="text" size="2" name="minval" /> to
+                <input type="text" size="2" name="maxval" />
+              </td>
+            </tr>
+          </table>
+
+          <p class="panel-title"><b>2D map settings:</b></p>
+          <table>
+            <tr>
+              <td>Map type:</td>
+              <td>
+                <select name="proj">
+                  <!--<option value=""          selected>flat (cylindrical lat-lon)</option>-->
+                  <option value="cyl" selected="">flat</option>
+                  <option value="ortho">sphere</option>
+                  <option value="npstere">N pole</option>
+                  <option value="spstere">S pole</option>
+                  <!--<option value="robin">map</option>-->
+                  <!--<option value="laea">laea</option>-->
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Project at</td>
+              <td>
+                latitude <input type="text" size="1" name="plat" /> longitude
+                <input type="text" size="1" name="plon" />
+              </td>
+            </tr>
+            <tr>
+              <td>Transparency:</td>
+              <td><input type="text" size="1" name="trans" /></td>
+            </tr>
+            <tr>
+              <td>Wind vectors</td>
+              <td>
+                <input type="checkbox" name="istherepoint" value="on" /> Active
+              </td>
+            </tr>
+            <tr>
+              <td>Point at specific coordinates</td>
+              <td>
+                <input type="checkbox" name="istherepoint" value="on" />Active
+                at latitude
+                <input type="text" size="1" name="latpoint" /> longitude
+                <input type="text" size="1" name="lonpoint" />
+              </td>
+            </tr>
+          </table>
         </collapsable-panel>
       </div>
       <div class="preview-panel"></div>
@@ -240,9 +323,9 @@ export default {
   data() {
     return {
       currentDate: new Date(),
-      isPresetsModalOpened: false,
+      isPresetsModalOpened: false
     };
-  },
+  }
 };
 </script>
 

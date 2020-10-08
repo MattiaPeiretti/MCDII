@@ -17,8 +17,8 @@
       <layer-crumb
         v-for="crumb in layers"
         :data="crumb"
-        @deleteCrumb="removeLayer(crumb.id)"
-      ></layer-crumb>
+        @deleteCrumb="removeLayer(crumb.id)">
+    </layer-crumb>
     </div>
 
     <div v-if="isModalOpened" class="layer-editor-modal">
@@ -30,8 +30,7 @@
             <option
               v-for="layerType in layerTypes"
               v-bind:value="{ id: layerType.id, text: layerType.text }"
-              >{{ layerType.text }}</option
-            >
+              >{{ layerType.text }}</option>
           </select>
           <br />
         </p>

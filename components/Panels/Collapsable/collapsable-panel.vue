@@ -74,6 +74,7 @@ export default {
     overflow: hidden;
     transition: max-height 0.15s ease-out;
     line-height: 1.7;
+    margin: 0 28px;
   }
 
   .content-opened {
@@ -98,4 +99,9 @@ export default {
   transition: 0.3s;
   border-radius: 3px;
 }
+
+table {
+  margin-left: 5px;
+}
+
 </style>
