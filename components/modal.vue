@@ -31,7 +31,7 @@ export default {
   border-radius: var(--interfaceBorderRadius);
 
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
