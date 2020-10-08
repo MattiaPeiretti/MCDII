@@ -1,5 +1,6 @@
 <template>
   <div class="main-container">
+    <toolbar @openModalPresets="isPresetsModalOpened = true"></toolbar>
     <div class="header">
       <h1>Query Console</h1>
       <span
@@ -10,24 +11,6 @@
 
     <div class="container-console">
       <div class="control-panel">
-        <collapsable-panel title="Presets">
-          <p><input type="text" /></p>
-          <p><button>This is a test button</button></p>
-          <p>
-            <input type="radio" name="picked" value="one" />
-            <input type="radio" name="picked" value="two" />
-          </p>
-          <p>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <lable for="vehicle1">This is a test</lable>
-          </p>
-          <p>
-            <select v-model="selected">
-              <option>one</option>
-              <option>two</option>
-            </select>
-          </p>
-        </collapsable-panel>
         <collapsable-panel title="Date Parameters">
           <p class="panel-title"><b>Mars Date:</b></p>
           <p>
@@ -51,10 +34,10 @@
             type="text"
             :placeholder="
               currentDate.getHours() +
-                ':' +
-                currentDate.getMinutes() +
-                ':' +
-                currentDate.getSeconds()
+              ':' +
+              currentDate.getMinutes() +
+              ':' +
+              currentDate.getSeconds()
             "
           />
         </collapsable-panel>
@@ -79,7 +62,7 @@
           </p>
         </collapsable-panel>
         <collapsable-panel title="Layers Selection">
-        <layer-editor></layer-editor>
+          <layer-editor></layer-editor>
         </collapsable-panel>
         <collapsable-panel title="Advanced Settings">
           <p class="panel-title"><b>Customize Data Request:</b></p>
@@ -128,16 +111,16 @@
                 <option value="6">dust storm max solar</option>
                 <option value="7">warm (dusty, max solar)</option>
                 <option value="8">cold (low dust, min solar)</option>
-                <option value="24">Martian Year 24 </option>
-                <option value="25">Martian Year 25 </option>
-                <option value="26">Martian Year 26 </option>
-                <option value="27">Martian Year 27 </option>
-                <option value="28">Martian Year 28 </option>
-                <option value="29">Martian Year 29 </option>
-                <option value="30">Martian Year 30 </option>
-                <option value="31">Martian Year 31 </option>
-                <option value="32">Martian Year 32 </option>
-                <option value="33">Martian Year 33 </option>
+                <option value="24">Martian Year 24</option>
+                <option value="25">Martian Year 25</option>
+                <option value="26">Martian Year 26</option>
+                <option value="27">Martian Year 27</option>
+                <option value="28">Martian Year 28</option>
+                <option value="29">Martian Year 29</option>
+                <option value="30">Martian Year 30</option>
+                <option value="31">Martian Year 31</option>
+                <option value="32">Martian Year 32</option>
+                <option value="33">Martian Year 33</option>
               </select>
             </li>
           </ul>
@@ -207,6 +190,48 @@
       </div>
       <div class="preview-panel"></div>
     </div>
+
+    <div class="modals">
+      <modal
+        v-if="isPresetsModalOpened"
+        @closeModal="isPresetsModalOpened = false"
+      >
+        <p class="panel-title"><b>Rovers / Landers: </b></p>
+        <preset-button>Not At Equator</preset-button>
+        <preset-button>InSight</preset-button>
+        <preset-button>Curiosity</preset-button>
+        <preset-button>Phoenix</preset-button>
+        <preset-button>Oppoirtunity</preset-button>
+        <preset-button>Spirit</preset-button>
+        <preset-button>Pathfinder</preset-button>
+        <preset-button>Viking 1</preset-button>
+        <preset-button>Viking 2</preset-button>
+
+        <p class="panel-title"><b>Time of the day: </b></p>
+        <preset-button>Morning</preset-button>
+        <preset-button>Afternoon</preset-button>
+        <preset-button>Evening</preset-button>
+        <preset-button>Night</preset-button>
+
+        <p class="panel-title"><b>Altitude: </b></p>
+        <preset-button>Near Surface</preset-button>
+        <preset-button>Boundary Layer</preset-button>
+        <preset-button>Troposhpere</preset-button>
+        <preset-button>Mesosphere</preset-button>
+        <preset-button>Thermosphere</preset-button>
+
+        <p class="panel-title"><b>Interst: </b></p>
+        <preset-button>Atmosphere</preset-button>
+        <preset-button>Winds</preset-button>
+        <preset-button>Weather</preset-button>
+        <preset-button>Water Cycle</preset-button>
+        <preset-button>Chemistry</preset-button>
+        <preset-button>Landing Engeneereing</preset-button>
+        <preset-button>Glaciology</preset-button>
+        <preset-button>Surface Meteorology</preset-button>
+        <preset-button>Radiative Balance</preset-button>
+      </modal>
+    </div>
   </div>
 </template>
 
@@ -214,9 +239,10 @@
 export default {
   data() {
     return {
-      currentDate: new Date()
+      currentDate: new Date(),
+      isPresetsModalOpened: false,
     };
-  }
+  },
 };
 </script>
 

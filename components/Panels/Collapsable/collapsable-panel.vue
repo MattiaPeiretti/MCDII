@@ -38,13 +38,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @import "@/static/css/form-styles.scss";
 
 .container {
   box-shadow: 0 2px 5px -2px var(--normalShadowColor);
   margin: 10px;
-  border: 1px solid #eee;
+  border: 1px solid var(--interfaceSeparatorColor1);
   border-radius: 15px 15px 0px 0px;
   background-color: var(--interfaceBackgroundColor);
 
@@ -99,6 +98,4 @@ export default {
   transition: 0.3s;
   border-radius: 3px;
 }
-
-
 </style>
