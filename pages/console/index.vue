@@ -273,6 +273,7 @@
       </div>
       <div class="preview-panel">
         <collapsable-panel title="3D Overview">
+        <mars-globe></mars-globe>
         </collapsable-panel>
       </div>
     </div>

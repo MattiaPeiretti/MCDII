@@ -13,7 +13,8 @@
     "nuxt": "^2.14.6",
     "three": "^0.121.1",
     "vue2-datepicker": "^3.6.2",
-    "vue2-timepicker": "^1.1.5"
+    "vue2-timepicker": "^1.1.5",
+    "webpack": "^4.44.2"
   },
   "devDependencies": {
     "node-sass": "^4.14.1",
