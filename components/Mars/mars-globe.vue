@@ -7,7 +7,8 @@
 <script>
 import * as THREE from 'three';
 
-import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
+
+import OrbitControls from './OrbitControls';
 
 const loadTexture = () => {
         const loader = new THREE.TextureLoader();   
@@ -26,7 +27,7 @@ export default {
 			// renderer.setSize( this.$el.innerWidth, this.$el.innerHeight );
 			// this.$el.appendChild( renderer.domElement );
 
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            const controls = new OrbitControls(camera, renderer.domElement);
             controls.minDistance = 1.12; controls.maxDistance = 10;
 
             camera.position.z = 5;
@@ -44,11 +45,11 @@ export default {
             // animate();
 
             const map = await loadTexture(`https://solartextures.b-cdn.net/2k_mars.jpg`);
-            scene.add(new THREE.Mesh(new THREE.SphereBufferGeometry(1, 32, 32), new THREE.MeshBasicMaterial({map})));
+            scene.add(new THREE.Mesh(new THREE.SphereBufferGeometry(1, 32, 32), ));
 
             renderer.render(scene, camera);
             controls.addEventListener("change", () => renderer.render(scene, camera));
-            invalidation.then(() => (controls.dispose(), renderer.dispose()));
+            
 
                     
 
