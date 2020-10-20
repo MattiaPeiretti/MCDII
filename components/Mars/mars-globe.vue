@@ -30,6 +30,9 @@ export default {
 
     const renderer = new THREE.WebGLRenderer({ canvas });
 
+    const raycaster = new THREE.Raycaster();
+    let mouse = new THREE.Vector2();
+
     renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
 
     // let globe = new THREE.Mesh(new THREE.SphereBufferGeometry(1, 32, 32), new THREE.MeshBasicMaterial({color: 0xffffff}));
@@ -40,7 +43,7 @@ export default {
 
     scene.add(globe);
 
-    renderer.render(scene, camera);
+
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -50,7 +53,37 @@ export default {
     controls.update();
 
     controls.addEventListener("change", () => renderer.render(scene, camera));
-    renderer.render(scene, camera);
+
+    function onMouseMove( event ) {
+
+      // calculate mouse position in normalized device coordinates
+      // (-1 to +1) for both components
+      let canvasBounds = renderer.context.canvas.getBoundingClientRect();
+      mouse.x = ( ( event.clientX - canvasBounds.left ) / ( canvasBounds.right - canvasBounds.left ) ) * 2 - 1;
+      mouse.y = - ( ( event.clientY - canvasBounds.top ) / ( canvasBounds.bottom - canvasBounds.top) ) * 2 + 1;
+      render();
+    }
+
+    function render() {
+
+      // update the picking ray with the camera and mouse position
+      raycaster.setFromCamera( mouse, camera );
+
+      // calculate objects intersecting the picking ray
+      var intersects = raycaster.intersectObjects( scene.children );
+
+      for ( var i = 0; i < intersects.length; i++ ) {
+
+        intersects[ i ].object.material.color.set( 0xff0000 );
+
+      }
+
+      renderer.render( scene, camera );
+
+    }
+
+    canvas.addEventListener( 'mousedown', onMouseMove, false );
+
   }
 };
 </script>
