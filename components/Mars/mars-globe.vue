@@ -26,7 +26,7 @@ export default {
       canvas.clientWidth / canvas.clientHeight,
       0.1,
       1000
-    ).translateZ(5);
+    ).translateZ(50);
 
     const renderer = new THREE.WebGLRenderer({ canvas });
 
@@ -37,25 +37,35 @@ export default {
 
     // let globe = new THREE.Mesh(new THREE.SphereBufferGeometry(1, 32, 32), new THREE.MeshBasicMaterial({color: 0xffffff}));
     let globe = new THREE.Mesh(
-      new THREE.SphereBufferGeometry(1, 32, 32),
+      new THREE.SphereBufferGeometry(2, 32, 32),
       new THREE.MeshBasicMaterial({ map })
     );
 
+    let pointer = new THREE.Mesh(
+      new THREE.SphereBufferGeometry(0.1, 32, 32),
+      new THREE.MeshBasicMaterial({ color: 0xffffff })
+    );
+
     scene.add(globe);
+    scene.add(pointer);
 
-
+    pointer.position.set(0, 0, 0);
+    globe.position.set(0, 0, 0);
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
     controls.minDistance = 1.12;
     controls.maxDistance = 10;
+    controls.enablePan = false;
 
     controls.update();
 
     controls.addEventListener("change", () => renderer.render(scene, camera));
 
     function onMouseMove( event ) {
-
+      
+      if (event.button == 0) return;
+      event.preventDefault();
       // calculate mouse position in normalized device coordinates
       // (-1 to +1) for both components
       let canvasBounds = renderer.context.canvas.getBoundingClientRect();
@@ -70,11 +80,11 @@ export default {
       raycaster.setFromCamera( mouse, camera );
 
       // calculate objects intersecting the picking ray
-      var intersects = raycaster.intersectObjects( scene.children );
-
+      var intersects = raycaster.intersectObjects( scene.children, true);
+      console.log(intersects);
       for ( var i = 0; i < intersects.length; i++ ) {
-
-        intersects[ i ].object.material.color.set( 0xff0000 );
+        
+        pointer.position.set(intersects[ i ].point.x, intersects[ i ].point.y, intersects[ i ].point.z);
 
       }
 
