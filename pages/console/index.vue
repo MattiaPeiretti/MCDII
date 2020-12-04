@@ -242,6 +242,10 @@
                     </tr>
                 </table>
             </collapsable-panel>
+
+            <collapsable-panel title="Info Test" v-bind:showWindowControls="true">
+                <info-iframe currentURL="http://www-mars.lmd.jussieu.fr/mars/time/solar_longitude.html"></info-iframe>
+            </collapsable-panel>
         </div>
         <div class="preview-panel">
             <collapsable-panel title="3D Overview" v-bind:showWindowControls="true">
@@ -326,5 +330,9 @@ export default {
     span {
         padding: 10px;
     }
+}
+
+html, body {
+  height: 100%;
 }
 </style>
