@@ -15,7 +15,7 @@
 
                 <table>
                     <tr>
-                        <td>Solar longitude (Ls):</td>
+                        <td><info-text v-on:clicked="updateCurrentInfoUrl('http://www-mars.lmd.jussieu.fr/mars/time/solar_longitude.html')">Solar longitude</info-text>(Ls):</td>
                         <td>
                             <input class="number-input-textbox" type="text" /> degrees
                         </td>
@@ -39,7 +39,7 @@
                 <p class="panel-title"><b>Earth Date:</b></p>
                 <p>Date:</p>
                 <client-only>
-                    <date-picker placeholder="MM/DD/YYYY" format="MM/dd/yyyy" v-model="date_today" />
+                    <date-picker placeholder="MM/DD/YYYY" format="MM/dd/yyyy" v-model="currentDate" />
                 </client-only>
                 <p>Time:</p>
                 <input type="text" :placeholder="
@@ -150,7 +150,7 @@
                 </table>
             </collapsable-panel>
 
-            <collapsable-panel title="Graph Preferences" v-bind:showWindowControls="true">
+            <collapsable-panel title="Graph Preferences" :allowDrag="true" :allowFullscreen="true" v-bind:showWindowControls="true">
                 <p class="panel-title"><b>General:</b></p>
                 <table>
                     <tr>
@@ -243,12 +243,10 @@
                 </table>
             </collapsable-panel>
 
-            <collapsable-panel title="Info Test" v-bind:showWindowControls="true">
-                <info-iframe currentURL="http://www-mars.lmd.jussieu.fr/mars/time/solar_longitude.html"></info-iframe>
-            </collapsable-panel>
+            
         </div>
         <div class="preview-panel">
-            <collapsable-panel title="3D Overview" v-bind:showWindowControls="true">
+            <collapsable-panel title="3D Overview" :allowDrag="true" :allowFullscreen="true" v-bind:showWindowControls="true">
                 <mars-globe></mars-globe>
             </collapsable-panel>
         </div>
@@ -292,6 +290,9 @@
             <preset-button>Radiative Balance</preset-button>
         </modal>
     </div>
+    <div class="dock">
+        <info-iframe :class="{'hidden':!showInfoPanel}" ref="infoFrame" :currentURL="currentInfoUrl" v-on:closecurrentpanel="closeInfoPanel()"></info-iframe>
+    </div>
 </div>
 </template>
 
@@ -300,9 +301,23 @@ export default {
     data() {
         return {
             currentDate: new Date(),
-            isPresetsModalOpened: false
+            isPresetsModalOpened: false,
+            currentInfoUrl: "",
+            showInfoPanel: false,
         };
-    }
+    },
+    methods: {
+        updateCurrentInfoUrl(url) {
+            this.currentInfoUrl = url;
+            this.showInfoPanel = true;
+
+            
+        },
+        closeInfoPanel(e) {
+            this.showInfoPanel = false;
+        }
+    },
+
 };
 </script>
 
@@ -330,6 +345,19 @@ export default {
     span {
         padding: 10px;
     }
+}
+
+.dock {
+    position: fixed;
+    bottom: 30px;
+    right: 0;
+    min-width: 500px;
+    z-index: 999;
+}
+
+.hidden {
+    display: none;
+    pointer-events: none;
 }
 
 html, body {
