@@ -16,6 +16,7 @@
                 <img v-if="!isFullscreen&&!isAnchored&&allowDrag" @click='isAnchored= !isAnchored' src="@/static/icons/view_agenda-24px.svg" alt="">
                 <img v-if="isAnchored&&!isFullscreen&&allowFullscreen" @click='isFullscreen= !isFullscreen' src="@/static/icons/open_in_full-24px.svg" />
                 <img v-if="isAnchored&&isFullscreen&&allowFullscreen" @click='isFullscreen= !isFullscreen' src="@/static/icons/close_fullscreen-24px.svg" />
+                <img v-if="allowClose" @click='closePanelMethod()' src="@/static/icons/close-24px.svg" />
             </div>
         </div>
 
@@ -31,7 +32,7 @@
 <script>
 function dragElement(element, header) {
     const elmnt = element;
-    console.log(elmnt);
+
     var pos1 = 0,
         pos2 = 0,
         pos3 = 0,
@@ -104,6 +105,11 @@ export default {
             default: true,
         },
 
+    },
+    methods: {
+        closePanelMethod(e) {
+            this.$emit("closecurrentpanel");
+        }
     },
     mounted() {
         dragElement(this.$refs.draggable, this.$refs.draggableHeader);
