@@ -20,8 +20,9 @@ export default {
     },
     props: {
         data: {
-        type: String,
-        required: true,
+            type: Object,
+            default: {},
+            required: true,
         },
     },
     methods: {
