@@ -4,22 +4,22 @@
           'anchored': isAnchored,
           'unanchored': !isAnchored,
         }">
-    <div class=" container">
+    <div class="container">
         <div class=" header">
-            <div v-if="!isFullscreen" @click="isOpened = !isOpened" class="arrow" :class="{
+            <div v-if="!isFullscreen&&allowCollapse" @click="isOpened = !isOpened" class="arrow" :class="{
           'arrow-down': isOpened}">
             </div>
             <h3>{{ title }}</h3>
             <div :class="{'hidden': isAnchored}" class='draggable-header' ref="draggableHeader"></div>
-            <div v-if="showWindowControls" class="buttons">
-                <img v-if="!isFullscreen&&isAnchored" @click='isAnchored= !isAnchored' src="@/static/icons/picture_in_picture-24px.svg" alt="">
-                <img v-if="!isFullscreen&&!isAnchored" @click='isAnchored= !isAnchored' src="@/static/icons/view_agenda-24px.svg" alt="">
-                <img v-if="isAnchored&&!isFullscreen" @click='isFullscreen= !isFullscreen' src="@/static/icons/open_in_full-24px.svg" />
-                <img v-if="isAnchored&&isFullscreen" @click='isFullscreen= !isFullscreen' src="@/static/icons/close_fullscreen-24px.svg" />
+            <div v-if="allowDrag || allowFullscreen || allowClose" class="buttons">
+                <img v-if="!isFullscreen&&isAnchored&&allowDrag" @click='isAnchored= !isAnchored' src="@/static/icons/picture_in_picture-24px.svg" alt="">
+                <img v-if="!isFullscreen&&!isAnchored&&allowDrag" @click='isAnchored= !isAnchored' src="@/static/icons/view_agenda-24px.svg" alt="">
+                <img v-if="isAnchored&&!isFullscreen&&allowFullscreen" @click='isFullscreen= !isFullscreen' src="@/static/icons/open_in_full-24px.svg" />
+                <img v-if="isAnchored&&isFullscreen&&allowFullscreen" @click='isFullscreen= !isFullscreen' src="@/static/icons/close_fullscreen-24px.svg" />
             </div>
         </div>
 
-        <div class="content" :class="{
+        <div ref="content" class="content" :class="{
         'content-opened': isOpened,
       }">
             <slot></slot>
@@ -87,16 +87,26 @@ export default {
             type: String,
             required: true,
         },
-        showWindowControls: {
+        allowDrag: {
             type: Boolean,
             default: false,
-        }
+        },
+        allowFullscreen: {
+            type: Boolean,
+            default: false,
+        },
+        allowClose: {
+            type: Boolean,
+            default: false,
+        },
+        allowCollapse: {
+            type: Boolean,
+            default: true,
+        },
+
     },
     mounted() {
-        console.log();
-        const draggable = this.$el.querySelector("#draggable");
         dragElement(this.$refs.draggable, this.$refs.draggableHeader);
-
     }
 }
 </script>
@@ -105,10 +115,9 @@ export default {
 @import "@/static/css/form-styles.scss";
 
 .fullscreen {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
-    height: 100%;
     top: 0 !important;
     left: 0 !important;
     z-index: 1000;
@@ -120,15 +129,21 @@ export default {
     }
 
     .container {
-        height: 95vh !important;
+        height: 90vh !important;
         margin: 0 5%;
     }
+
+    .iframe {
+        height: 80vh!important;
+    }
+
 }
 
 .unanchored {
     position: fixed;
     max-width: 600px;
     top: 20vh;
+    right: 20vw;
 }
 
 .container-outer {
@@ -174,6 +189,7 @@ export default {
 
     .content {
         height: auto;
+        height: 90%;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.15s ease-out;
