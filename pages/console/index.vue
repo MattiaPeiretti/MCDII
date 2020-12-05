@@ -25,7 +25,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Local Time:</td>
+                        <td><info-text v-on:clicked="updateCurrentInfoUrl('http://www-mars.lmd.jussieu.fr/mars/time/local_time.html')">Local Time:</info-text></td>
                         <td>
                             <input class="number-input-textbox" type="text" /> Matian hour
                         </td>
@@ -104,13 +104,13 @@
                     <tr>
                         <td>
                             <input type="checkbox" id="same-local-time" name="same-local-time" value="" />
-                            <label for="same-local-time">Same <i>local time</i> on range of longitudes</label>
+                            <label for="same-local-time">Same <info-text v-on:clicked="updateCurrentInfoUrl('http://www-mars.lmd.jussieu.fr/mars/time/local_time.html')">local time</info-text> on range of longitudes</label>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <input type="checkbox" id="high-reslolution" name="high-reslolution" value="" />
-                            <label for="high-reslolution">Use <i>high resolution topography</i></label>
+                            <label for="high-reslolution">Use <info-text v-on:clicked="updateCurrentInfoUrl('http://www-mars.lmd.jussieu.fr/mars/info_web/index.html#highres')">high resolution topography</info-text></label>
                         </td>
                     </tr>
                     <tr>
@@ -121,7 +121,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <i>Dust/EUV scenario</i>
+                            <info-text v-on:clicked="updateCurrentInfoUrl('http://www-mars.lmd.jussieu.fr/mars/info_web/index.html#scenarios')">Dust/EUV scenario</info-text>
                             <select name="dust-euv-scenario">
                                 <option value="1" selected="">climatology ave solar</option>
                                 <option value="2">climatology min solar</option>
