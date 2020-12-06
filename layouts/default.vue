@@ -2,14 +2,7 @@
   <div>
     <navbar />
     <Nuxt />
-    <span class="credits"
-      >A website by
-      <a href="https://mattiapeiretti.com/" target="_blank">Mattia Peiretti</a>.
-      Opensouce
-      <a href="https://github.com/MattiaPeiretti/MCDII" target="_blank"
-        >Repo</a
-      ></span
-    >
+    <databar></databar>
   </div>
 </template>
 
@@ -21,14 +14,13 @@
   --highlightColor: #ff763c;
   --normalShadowColor: rgba(0, 0, 0, 0.2);
   --highlightShadowColor: var(--normalShadowColor);
-
-
+  --textDarkBackgroundColor: #eee;
 
   --navbarForegroundColor: var(--foregroundColor);
   --navbarBackgroundColor: #fff;
   --navbarLinkHighlightColor: var(--primaryColor);
   --navbarMobileMenuBackgroundColor: var(--primaryColor);
-  --navbarMobileMenuForegroundColor: #fff;
+  --navbarMobileMenuForegroundColor: #ccc;
 
   --interfaceBorderRadius: 4px;
   --interfaceSecondaryHoverColor: rgba(0, 0, 0, 0.1);
@@ -55,6 +47,10 @@
 
   --consoleBackgroundColor: #f8f8f8;
   --consoleForegroundColor: var(--foregroundColor);
+
+  --databarBackgroundColor:#ff4d00;
+  --databarForegroundColor:#fff;
+  --databarBackgroundColorDark:#c93c00;
 }
 
 html {
@@ -69,11 +65,7 @@ html {
   box-sizing: border-box;
 }
 
-.credits {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-}
+
 
 *,
 *::before,
@@ -117,4 +109,6 @@ h3,
 h4 {
   font-family: "Montserrat", sans-serif;
 }
+
+
 </style>

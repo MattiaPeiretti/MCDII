@@ -310,8 +310,6 @@ export default {
         updateCurrentInfoUrl(url) {
             this.currentInfoUrl = url;
             this.showInfoPanel = true;
-
-            
         },
         closeInfoPanel(e) {
             this.showInfoPanel = false;
@@ -326,6 +324,7 @@ export default {
     color: var(--consoleForegroundColor);
     background-color: var(--consoleBackgroundColor);
     min-height: 100vh;
+    padding-bottom: 30px;
 }
 
 .container-console {
